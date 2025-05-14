@@ -1,8 +1,8 @@
 from enum import Enum
 
 class Model(Enum):
-    INF="INFLUENCER"
-    USER="USER"
+    INFLUENCER="INFLUENCER"
+    CUSTOMER="CUSTOMER"
 
 class Operation(Enum):
     CREATE = "CREATE"

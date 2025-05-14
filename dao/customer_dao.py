@@ -2,11 +2,6 @@ from dynamodb.connection import with_connection
 from utils.logger_factory import get_logger
 from utils.dao_utils import build_record
 
-QUESTION = 'question'
-ANSWER = 'answer'
-MESSAGE = "message"
-ERROR="error"
-
 logger = get_logger(__name__)
 
 @with_connection
