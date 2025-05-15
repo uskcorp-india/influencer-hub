@@ -9,3 +9,6 @@ def update_customer(customer: dict):
 
 def delete_customer(customer_id:str):
     return customer_dao.delete(customer_id)
+
+def find_customer(customer_id:str):
+    return customer_dao.find(customer_id)

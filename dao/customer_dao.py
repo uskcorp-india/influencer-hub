@@ -2,6 +2,8 @@ from dynamodb.connection import with_connection
 from utils.logger_factory import get_logger
 from utils.dao_utils import build_record
 import constants.common as Common
+from utils.dao_utils import from_attributes_to_json
+
 
 logger = get_logger(__name__)
 
@@ -42,8 +44,22 @@ def delete(dynamodb, customer_id: str):
 
 
 @with_connection
-def customer_exists(dynamodb, user_id: str) -> bool:
+def customer_exists(dynamodb, customer_id: str) -> bool:
     table = dynamodb.Table(Common.CUSTOMER)
-    response = table.get_item(Key={"id": user_id})
+    response = table.get_item(Key={"id": customer_id})
     return "Item" in response
 
+@with_connection
+def find(dynamodb, customer_id: str):
+    table = dynamodb.Table(Common.CUSTOMER)
+    response = table.get_item(Key={"id": customer_id})
+    if "Item" in response:
+        return from_attributes_to_json(response["Item"])
+    else:
+        raise ValueError(f"User not found with ID: {customer_id}")
+
+@with_connection
+def get_user_details(dynamodb, customer_id: str):
+    table = dynamodb.Table("customer")
+    response = table.get_item(Key={"id": customer_id})
+    return "Item" in response
