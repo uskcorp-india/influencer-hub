@@ -30,4 +30,7 @@ def delete(customer_id:str):
     logger.info(response)
     return build_response(response,message="customer deleted successfully")
 
-
+def find(customer_id: str):
+    response = db.find_customer(customer_id)
+    logger.info(response)
+    return build_response(response,"customer Found Successfully")
