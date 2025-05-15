@@ -14,3 +14,13 @@ def create(customer: dict):
     else:
         response = db.create_customer(customer)
         return build_response(response,'customer Created Successfully')
+
+def update(customer: dict):
+    validated_customer = validator.validate(customer)
+    logger.info(f'Updating customer details: {customer}')
+
+    if 'errors' in validated_customer:
+        return build_response(validated_customer['errors'], 400)
+    else:
+        response = db.update_customer(customer)
+        return build_response(response, 'Customer Updated Successfully')
