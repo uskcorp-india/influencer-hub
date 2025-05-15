@@ -24,3 +24,10 @@ def update(customer: dict):
     else:
         response = db.update_customer(customer)
         return build_response(response, 'Customer Updated Successfully')
+
+def delete(customer_id:str):
+    response=db.delete_customer(customer_id)
+    logger.info(response)
+    return build_response(response,message="customer deleted successfully")
+
+

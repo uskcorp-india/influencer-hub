@@ -7,3 +7,5 @@ def create_customer(customer: dict):
 def update_customer(customer: dict):
     return customer_dao.update(customer)
 
+def delete_customer(customer_id:str):
+    return customer_dao.delete(customer_id)
