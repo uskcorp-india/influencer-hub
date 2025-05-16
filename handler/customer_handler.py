@@ -34,3 +34,8 @@ def find(customer_id: str):
     response = db.find_customer(customer_id)
     logger.info(response)
     return build_response(response,"customer Found Successfully")
+
+def find_all():
+    response = db.find_all_customers()
+    logger.info(f"Total customers fetched: {len(response)}")
+    return build_response(response, "All Customers Fetched Successfully")

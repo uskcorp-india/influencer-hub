@@ -11,3 +11,6 @@ def delete_customer(customer_id:str):
 
 def find_customer(customer_id:str):
     return customer_dao.find(customer_id)
+
+def find_all_customers():
+    return customer_dao.find_all()
