@@ -4,9 +4,7 @@ from utils.dao_utils import build_record
 import constants.common as Common
 from utils.dao_utils import from_attributes_to_json
 
-
 logger = get_logger(__name__)
-
 @with_connection
 def create(dynamodb, customer: dict):
     customer = customer | build_record()
