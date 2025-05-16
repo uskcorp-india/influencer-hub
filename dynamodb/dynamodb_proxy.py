@@ -28,5 +28,5 @@ def delete_influencer(influencer_id:str):
 def find_influencer(influencer_id:str):
     return influencer_dao.find(influencer_id)
 
-def find_all_influencer():
+def find_all_influencers():
     return influencer_dao.find_all()

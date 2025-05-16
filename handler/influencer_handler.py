@@ -36,6 +36,6 @@ def delete(influencer_id:str):
     return build_response(response,message="influencer deleted successfully")
 
 def find_all():
-    response = db.find_all_influencer()
+    response = db.find_all_influencers()
     logger.info(f"Total influencer fetched: {len(response)}")
     return build_response(response, "All influencer Fetched Successfully")
