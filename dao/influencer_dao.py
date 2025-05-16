@@ -65,7 +65,3 @@ def find_all(dynamodb):
         return []
     logger.info(f"Fetched {len(items)} influencer from {Common.INFLUENCER}")
     return [from_attributes_to_json(item) for item in items]
-
-
-if __name__ == "__main__":
-   print(find_all())
