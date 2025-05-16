@@ -56,3 +56,14 @@ def customer_exists(dynamodb, customer_id: str) -> bool:
     table = dynamodb.Table(Common.CUSTOMER)
     response = table.get_item(Key={"id": customer_id})
     return "Item" in response
+
+@with_connection
+def find_all(dynamodb):
+    table = dynamodb.Table(Common.CUSTOMER)
+    response = table.scan()
+    items = response.get("Items", [])
+    if not items:
+        logger.info(f"No customers found in {Common.CUSTOMER}")
+        return []
+    logger.info(f"Fetched {len(items)} customers from {Common.CUSTOMER}")
+    return [from_attributes_to_json(item) for item in items]
