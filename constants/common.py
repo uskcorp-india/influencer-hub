@@ -1,1 +1,2 @@
 CUSTOMER = 'customer'
+INFLUENCER='influencer'

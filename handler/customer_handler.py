@@ -15,6 +15,11 @@ def create(customer: dict):
         response = db.create_customer(customer)
         return build_response(response,'customer Created Successfully')
 
+def find(customer_id: str):
+    response = db.find_customer(customer_id)
+    logger.info(response)
+    return build_response(response,"customer Found Successfully")
+
 def update(customer: dict):
     validated_customer = validator.validate(customer)
     logger.info(f'Updating customer details: {customer}')
@@ -29,11 +34,6 @@ def delete(customer_id:str):
     response=db.delete_customer(customer_id)
     logger.info(response)
     return build_response(response,message="customer deleted successfully")
-
-def find(customer_id: str):
-    response = db.find_customer(customer_id)
-    logger.info(response)
-    return build_response(response,"customer Found Successfully")
 
 def find_all():
     response = db.find_all_customers()
