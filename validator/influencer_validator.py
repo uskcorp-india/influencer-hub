@@ -3,7 +3,6 @@ from schema import Schema, And, Optional, SchemaError
 
 def validate(influencer: dict) -> dict:
     errors = []
-
     field_validators = {
         'name': And(str, len, error="Field 'name' should be a non-empty string"),
         'email': And(str, lambda s: bool(re.match(
