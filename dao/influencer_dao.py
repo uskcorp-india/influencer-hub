@@ -3,7 +3,6 @@ from utils.logger_factory import get_logger
 from utils.dao_utils import build_record,from_attributes_to_json
 import constants.common as Common
 
-
 logger = get_logger(__name__)
 @with_connection
 def create(dynamodb, influencer: dict):
