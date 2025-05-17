@@ -8,6 +8,3 @@ class Operation(Enum):
     CREATE = "CREATE"
     UPDATE = "UPDATE"
     DELETE = "DELETE"
-
-
-

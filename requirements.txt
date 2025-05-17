@@ -2,3 +2,4 @@ boto3
 schema
 fastapi
 dynamodb-json~= 1.4.2
+pytest
